@@ -110,8 +110,7 @@ include $(MAKEFILE_DIR)/svtb.$(call tolower, $(USE_SIM)).mk
 $(V)SIMBUILD_LOGFILT ?= | $(MAKEFILE_DIR)/$(call tolower, $(USE_SIM))_logfilt.sh
 
 # Components
-VERIF_FILES += -F ${NSI_SIM_CMN_DIR}/tb/nsi_pkg.f
-VERIF_FILES += ${NSI_SIM_CMN_DIR}/tb/vip/common/nsi_testenv_hdl_task_if.c
+VERIF_FILES += -F ${SIM_CMN_DIR}/tb/nsi_pkg.f
 
 ifneq (0, $(USE_CDN_VIP))
 COM_BUILD_OPT += +define+DENALI_UVM
@@ -121,19 +120,19 @@ VERIF_FILES   += $(DENALI)/ddvapi/sv/denaliMem.sv
 endif
 
 ifneq (0, $(USE_AXI_VIP))
-VERIF_FILES   += -F ${NSI_SIM_CMN_DIR}/tb/vip/axi4/files.f
+VERIF_FILES   += -F ${SIM_CMN_DIR}/tb/vip/axi4/files.f
 endif
 
 ifneq (0, $(USE_APB_VIP))
-VERIF_FILES   += -F ${NSI_SIM_CMN_DIR}/tb/vip/apb/files.f
+VERIF_FILES   += -F ${SIM_CMN_DIR}/tb/vip/apb/files.f
 endif
 
 ifneq (0, $(USE_AHB_VIP))
-VERIF_FILES   += -F ${NSI_SIM_CMN_DIR}/tb/vip/ahb5/files.f
+VERIF_FILES   += -F ${SIM_CMN_DIR}/tb/vip/ahb5/files.f
 endif
 
 ifneq (0, $(USE_JTAG_VIP))
-VERIF_FILES   += -F ${NSI_SIM_CMN_DIR}/tb/vip/jtag/files.f
+VERIF_FILES   += -F ${SIM_CMN_DIR}/tb/vip/jtag/files.f
 endif
 
 # Simulator Option
