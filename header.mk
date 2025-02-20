@@ -30,7 +30,3 @@ help:               ## display this help screen
 		awk 'BEGIN {FS = ":.*?## "}; {printf " \033[36m%-20s\033[0m %s\n", $$1, $$2}'; \
 	done | sort
 
-# -------
-ifeq ($(origin NSI_SIM_CMN_DIR), undefined)
-  $(error Environment 'NSI_SIM_CMN_DIR' undefned, Please source 'common/setup.sh' in your script)
-endif
